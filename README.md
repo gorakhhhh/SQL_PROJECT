@@ -188,9 +188,11 @@ WHERE item_name = 'Margherita Pizza';
 5.QUESTION AND ANSWERS :-
 
 #1.view the menu_items table.
+
 select * from menu_items;
 
 #2.what are the most least and most explansive items in the menu.
+
 select * from menu_items 
 order by price;
 
@@ -198,60 +200,76 @@ select * from menu_items
 order by price desc;
 
 #3.how many main cource are there in menu:
+
 select * from menu_items where category='main course';
 
 #4 give me expansive main course?
+
 select * from menu_items where category='main course'
 order by price desc;
 
 #5.how many items in each category?
+
 select category,count(item_name)
 from menu_items
 group by category;
 
 #6.what are the avg dish price within the each category?
+
 select category,avg(price)
 from menu_items
 group by category;
 
 #7Find all menu items priced above ₹10.00.
+
 SELECT * FROM menu_items WHERE price > 10.00;
 
 #8. Display only item_name and price of all items.
+
 SELECT item_name, price FROM menu_items;
 
 #9. Count the total number of menu items.
+
 SELECT COUNT(*) AS total_items FROM menu_items;
 
 #10.Get the average price of all menu items.
+
 select avg(price) as avg_price from menu_items;
 
 #11.Find the total number of items in the "Dessert" category.
+
 select count(*) as total_dessart from menu_items where category='dessert';
 
 #12.List all menu items in ascending order of price.
+
 select * from menu_items order by price;
 
 #13.Get the second most expensive item from the menu.
+
 select * from menu_items order by price desc
 limit 1
 offset 1;
 
 #14. Find all menu items with "Pizza" in their name.
+
 SELECT * FROM menu_items WHERE item_name LIKE '%Pizza%';
 
 #15.Find all items priced between ₹5 and ₹10.
+
 select * from menu_items where price between 5 and 10;
 
 #16.Increase the price of all items by 10%.
+
 UPDATE menu_items SET price = price * 1.10;
 set sql_safe_updates =0
 
 #17.Delete all items from the "Beverage" category.
+
 delete FROM menu_items WHERE category = 'main course';
 set sql_safe_updates =1
 
 
 #18.Add a new item to the menu.
+
 INSERT INTO menu_items (menu_item_id, item_name, category, price) 
 VALUES (501, 'Schezwan Noodles', 'Main Course', 12.49);
